@@ -153,7 +153,7 @@ def main():
     trigger_token_ids = [vocab.get_token_index("the")] * num_trigger_tokens
 
     # sample batches, update the triggers, and repeat
-    for batch in lazy_groups_of(iterator(targeted_dev_data, num_epochs=5, shuffle=True), group_size=1):
+    for batch in lazy_groups_of(iterator(targeted_dev_data, num_epochs=3, shuffle=True), group_size=1):
         # get accuracy with current triggers
         utils.get_accuracy(model, targeted_dev_data, vocab, trigger_token_ids)
         model.train() # rnn cannot do backwards in train mode
@@ -174,7 +174,7 @@ def main():
                                                                embedding_weight,
                                                                trigger_token_ids,
                                                                tree,
-                                                               10,
+                                                               1000,
                                                                num_candidates=200,
                                                                increase_loss=True)
 
