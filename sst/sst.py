@@ -80,7 +80,7 @@ def main():
         token_embedding = Embedding(num_embeddings=vocab.get_vocab_size('tokens'),
                                     embedding_dim=300,
                                     weight=weight,
-                                    trainable=True)
+                                    trainable=False)
         # embedding_weight = weight.clone()
         word_embedding_dim = 300
 
