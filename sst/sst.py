@@ -174,7 +174,7 @@ def main():
                                                                embedding_weight,
                                                                trigger_token_ids,
                                                                tree,
-                                                               1000,
+                                                               2,
                                                                num_candidates=200,
                                                                increase_loss=True)
 
