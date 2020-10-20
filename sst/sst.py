@@ -78,7 +78,7 @@ def main():
         token_embedding = Embedding(num_embeddings=vocab.get_vocab_size('tokens'),
                                     embedding_dim=300,
                                     weight=weight,
-                                    trainable=False)
+                                    trainable=True)
         word_embedding_dim = 300
 
     # Initialize model, cuda(), and optimizer
