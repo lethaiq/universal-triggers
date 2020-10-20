@@ -65,7 +65,7 @@ def main():
 
     # Randomly initialize vectors
     if EMBEDDING_TYPE == "None":
-        token_embedding = Embedding(num_embeddings=vocab.get_vocab_size('tokens'), embedding_dim=300)
+        token_embedding = Embedding(num_embeddings=vocab.get_vocab_size('tokens'), embedding_dim=300, trainable=True)
         word_embedding_dim = 300
 
     # Load word2vec vectors
