@@ -174,8 +174,8 @@ def main():
                                                                embedding_weight,
                                                                trigger_token_ids,
                                                                tree,
-                                                               100,
-                                                               num_candidates=40,
+                                                               10,
+                                                               num_candidates=200,
                                                                increase_loss=True)
 
         # Tries all of the candidates and returns the trigger sequence with highest loss.
