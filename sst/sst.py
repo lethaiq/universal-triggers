@@ -79,7 +79,7 @@ def main():
                                     embedding_dim=300,
                                     weight=weight,
                                     trainable=True)
-        embedding_weight = weight.clone()
+        # embedding_weight = weight.clone()
         word_embedding_dim = 300
 
     # Initialize model, cuda(), and optimizer
@@ -123,7 +123,7 @@ def main():
     # Register a gradient hook on the embeddings. This saves the gradient w.r.t. the word embeddings.
     # We use the gradient later in the attack.
     utils.add_hooks(model)
-    # embedding_weight = utils.get_embedding_weight(model) # also save the word embedding matrix
+    embedding_weight = utils.get_embedding_weight(model) # also save the word embedding matrix
     # embedding_weight = weight
 
     # Use batches of size universal_perturb_batch_size for the attacks.
@@ -163,7 +163,7 @@ def main():
         cand_trigger_token_ids = attacks.hotflip_attack(averaged_grad,
                                                         embedding_weight,
                                                         trigger_token_ids,
-                                                        num_candidates=40,
+                                                        num_candidates=100,
                                                         increase_loss=True)
         # cand_trigger_token_ids = attacks.random_attack(embedding_weight,
         #                                                trigger_token_ids,
