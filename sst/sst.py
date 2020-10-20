@@ -167,16 +167,16 @@ def main():
         #                                                 trigger_token_ids,
         #                                                 num_candidates=40,
         #                                                 increase_loss=True)
-        # cand_trigger_token_ids = attacks.random_attack(embedding_weight,
-        #                                                trigger_token_ids,
-        #                                                num_candidates=40)
-        cand_trigger_token_ids = attacks.nearest_neighbor_grad(averaged_grad,
-                                                               embedding_weight,
-                                                               trigger_token_ids,
-                                                               tree,
-                                                               2,
-                                                               num_candidates=200,
-                                                               increase_loss=True)
+        cand_trigger_token_ids = attacks.random_attack(embedding_weight,
+                                                       trigger_token_ids,
+                                                       num_candidates=40)
+        # cand_trigger_token_ids = attacks.nearest_neighbor_grad(averaged_grad,
+        #                                                        embedding_weight,
+        #                                                        trigger_token_ids,
+        #                                                        tree,
+        #                                                        2,
+        #                                                        num_candidates=200,
+        #                                                        increase_loss=True)
 
         # Tries all of the candidates and returns the trigger sequence with highest loss.
         trigger_token_ids = utils.get_best_candidates(model,
