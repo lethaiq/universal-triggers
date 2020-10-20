@@ -94,7 +94,8 @@ def main():
     model_path = "/tmp/" + EMBEDDING_TYPE + "_" + "model.th"
     vocab_path = "/tmp/" + EMBEDDING_TYPE + "_" + "vocab"
     # if the model already exists (its been trained), load the pre-trained weights and vocabulary
-    if os.path.isfile(model_path):
+    load = False
+    if os.path.isfile(model_path) and load:
         vocab = Vocabulary.from_files(vocab_path)
         model = LstmClassifier(word_embeddings, encoder, vocab)
         with open(model_path, 'rb') as f:
