@@ -149,7 +149,7 @@ def main():
     model.train() # rnn cannot do backwards in train mode
 
     # initialize triggers which are concatenated to the input
-    num_trigger_tokens = 3
+    num_trigger_tokens = 2
     trigger_token_ids = [vocab.get_token_index("the")] * num_trigger_tokens
 
     # sample batches, update the triggers, and repeat
