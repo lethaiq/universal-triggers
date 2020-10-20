@@ -162,14 +162,14 @@ def main():
         averaged_grad = utils.get_average_grad(model, batch, trigger_token_ids)
 
         # pass the gradients to a particular attack to generate token candidates for each token.
-        # cand_trigger_token_ids = attacks.hotflip_attack(averaged_grad,
-        #                                                 embedding_weight,
-        #                                                 trigger_token_ids,
-        #                                                 num_candidates=40,
-        #                                                 increase_loss=True)
-        cand_trigger_token_ids = attacks.random_attack(embedding_weight,
-                                                       trigger_token_ids,
-                                                       num_candidates=40)
+        cand_trigger_token_ids = attacks.hotflip_attack(averaged_grad,
+                                                        embedding_weight,
+                                                        trigger_token_ids,
+                                                        num_candidates=40,
+                                                        increase_loss=True)
+        # cand_trigger_token_ids = attacks.random_attack(embedding_weight,
+        #                                                trigger_token_ids,
+        #                                                num_candidates=40)
         # cand_trigger_token_ids = attacks.nearest_neighbor_grad(averaged_grad,
         #                                                        embedding_weight,
         #                                                        trigger_token_ids,
