@@ -15,8 +15,7 @@ def get_embedding_weight(model):
     """
     for module in model.modules():
         if isinstance(module, TextFieldEmbedder):
-            for embed in module._token_embedders.keys():
-                embedding_weight = module._token_embedders[embed].weight.cpu().detach()
+            embedding_weight = module._token_embedders['tokens'].weight.cpu().detach()
     return embedding_weight
 
 # hook used in add_hooks()
@@ -32,8 +31,7 @@ def add_hooks(model):
     """
     for module in model.modules():
         if isinstance(module, TextFieldEmbedder):
-            for embed in module._token_embedders.keys():
-                module._token_embedders[embed].weight.requires_grad = True
+            module._token_embedders['tokens'].weight.requires_grad = True
             module.register_backward_hook(extract_grad_hook)
 
 def evaluate_batch(model, batch, trigger_token_ids=None, snli=False):

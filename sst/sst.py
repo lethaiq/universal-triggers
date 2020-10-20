@@ -46,7 +46,7 @@ class LstmClassifier(Model):
     def get_metrics(self, reset=False):
         return {'accuracy': self.accuracy.get_metric(reset)}
 
-EMBEDDING_TYPE = "w2v" # what type of word embeddings to use
+EMBEDDING_TYPE = "None" # what type of word embeddings to use
 
 def main():
     # load the binary SST dataset.
@@ -163,7 +163,7 @@ def main():
         cand_trigger_token_ids = attacks.hotflip_attack(averaged_grad,
                                                         embedding_weight,
                                                         trigger_token_ids,
-                                                        num_candidates=100,
+                                                        num_candidates=40,
                                                         increase_loss=True)
         # cand_trigger_token_ids = attacks.random_attack(embedding_weight,
         #                                                trigger_token_ids,
