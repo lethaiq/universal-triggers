@@ -46,7 +46,7 @@ class LstmClassifier(Model):
     def get_metrics(self, reset=False):
         return {'accuracy': self.accuracy.get_metric(reset)}
 
-EMBEDDING_TYPE = "w2v" # what type of word embeddings to use
+EMBEDDING_TYPE = "None" # what type of word embeddings to use
 
 def main():
     # load the binary SST dataset.
